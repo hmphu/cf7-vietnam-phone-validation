@@ -4,14 +4,12 @@
  * Plugin URI: http://hmphu.com/
  * Description: Added vietnam phone validation for CF7 tel field
  * Version: 1.0.0
- * Text Domain: cf7-vn
+ * Text Domain: contact-form-7
  * Author: Jimmy Hoang
  * Author URI: http://hmphu.com/
  */
 
 class JH_CF7_Vietnam_Phone_Validation {
-	
-	const TEXT_DOMAIN = 'cf7-vn';
 
 	public function __construct() {
 		
@@ -27,7 +25,7 @@ class JH_CF7_Vietnam_Phone_Validation {
 		$value = isset($_POST[$tagName]) ? $_POST[$tagName] : false;
 
 		if(!empty($value) && !$this->validatePhoneNumber($value)){
-			$result->invalidate( $tag, __('The telephone number is invalid.', self::TEXT_DOMAIN));
+			$result->invalidate( $tag, __( "Telephone number that the sender entered is invalid", 'contact-form-7' ));
 		}
 
 		return $result;
